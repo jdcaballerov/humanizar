@@ -4,7 +4,7 @@ humanizar
 Humanization utilities for spanish language. 
 Utilidades de humanización para el idioma español.
 
-Convertidor de números a letras.
+Convertidor de números a su escritura con palabras o valor en letras.
 
 usage
 -----
