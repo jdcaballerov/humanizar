@@ -100,7 +100,7 @@ def __convert_group(n):
     return output
 
 
-def to_word(number):
+def hundreds_to_word(number):
     """Converts a positive number less than a thousand (1000) to words in Spanish
 
     Args:
@@ -109,7 +109,7 @@ def to_word(number):
         A string in Spanish with first letters capitalized representing the number in letters
 
     Examples:
-        >>> to_word(123)
+        >>> hundreds_to_word(123)
         'Ciento Ventitres'
     """
     converted = ''
@@ -149,7 +149,7 @@ def number_words(n):
     #print num_units
     for i,n in enumerate(num_units):
         if int(n) != 0:
-            words = to_word(int(n))
+            words = hundreds_to_word(int(n))
             units = UNITS[len(num_units)-i-1][0 if int(n) == 1 else 1]
             human_readable.append([words,units])
 
@@ -162,6 +162,14 @@ def number_words(n):
             pass
     human_readable = [item for sublist in human_readable for item in sublist]
     return ' '.join(human_readable).replace('  ',' ').title().strip()
+
+def number_to_words(num):
+    parts = str(num).split('.')
+    try:
+        decimal_words = ' con ' + number_words(int(parts[1]))
+    except IndexError:
+        decimal_words = ''
+    return number_words(int(parts[0])) + decimal_words
 
 if __name__ == "__main__":
     import doctest
