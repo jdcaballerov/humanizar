@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from decimal import Decimal
+
 # website to verify http://tip.dis.ulpgc.es/numeros-texto/
 
 UNIDADES = (
@@ -164,9 +166,9 @@ def number_words(n):
     return ' '.join(human_readable).replace('  ',' ').title().strip()
 
 def number_to_words(num):
-    parts = str(num).split('.')
+    parts = str(Decimal(num)).split('.')
     try:
-        decimal_words = ' con ' + number_words(int(parts[1]))
+        decimal_words = ' con ' + number_words(int(parts[1][:2]))
     except IndexError:
         decimal_words = ''
     return number_words(int(parts[0])) + decimal_words
