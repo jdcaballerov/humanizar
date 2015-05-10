@@ -18,7 +18,12 @@ Integer humanization:
     >>> humanizar.number_to_words(53625999567)
     'Cincuenta Y Tres Mil Seiscientos Venticinco Millones Novecientos Noventa Y Nueve Mil Quinientos Sesenta Y Siete'
     >>> humanizar.number_to_words(12322.233)
-    'Doce Mil Trescientos Ventidos con Doscientos Treinta Y Tres'
+    'Doce Mil Trescientos Ventidos con Ventitres'
+    # WARNING Introducing large numbers requires rounding
+    >>> humanizar.number_to_words(1232234223.12)
+    'Un Mil Doscientos Treinta Y Dos Millones Doscientos Treinta Y Cuatro Mil Doscientos Ventitres con Once'
+    >>> humanizar.number_to_words('1232234223.12')
+    'Un Mil Doscientos Treinta Y Dos Millones Doscientos Treinta Y Cuatro Mil Doscientos Ventitres con Doce'
 
 Dates humanization
     
