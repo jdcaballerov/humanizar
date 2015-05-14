@@ -165,7 +165,7 @@ def number_words(n):
     human_readable = [item for sublist in human_readable for item in sublist]
     return ' '.join(human_readable).replace('  ',' ').title().strip()
 
-def number_to_words(num):
+def int_to_words(num):
     parts = str(Decimal(num)).split('.')
     try:
         decimal_words = ' con ' + number_words(int(parts[1][:2]))
